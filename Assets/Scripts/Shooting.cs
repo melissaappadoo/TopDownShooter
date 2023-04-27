@@ -10,10 +10,12 @@ public class Shooting : MonoBehaviour
 
     public float bulletForce = 20f;
 
+    PlayerExp exp;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        exp = GetComponent<PlayerExp>();
     }
 
     // Update is called once per frame
@@ -30,5 +32,6 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        exp.AddExp(5);
     }
 }
