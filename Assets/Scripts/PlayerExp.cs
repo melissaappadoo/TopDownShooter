@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerExp : MonoBehaviour
 {
     public int exp;
-    private int currentLevel;
+    public int currentLevel;
 
     public ExpBar expBar;
+    public TMP_Text level;
 
     public void AddExp(int expToAdd)
     {
@@ -21,6 +23,7 @@ public class PlayerExp : MonoBehaviour
         {
             this.exp = 0;
             this.currentLevel++;
+            level.text = currentLevel.ToString();
             Debug.Log("Next level reached");
         }
     }
